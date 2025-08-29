@@ -93,14 +93,27 @@
 }
 
 .cabecalho {
-    padding-top: 14vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
     text-align: center;
-    margin-top: 2rem; /* flexível em vez de fixo */
+    padding-top: 14vh;
+    gap: 2rem; /* espaço entre elementos internos */
 }
+
+@media (max-width: 900px) {
+    .cabecalho {
+        padding-top: 10vh; /* menos espaço em tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    .cabecalho {
+        padding-top: 6vh; /* menos espaço em celulares */
+    }
+}
+
+
 
 h3{
     color: white;

@@ -1,187 +1,203 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
+/* Fonte Anton */
 .anton-regular {
   font-family: "Anton", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
-.dm-sans {
-  font-family: ant ;
-  font-optical-sizing: auto;
-  font-weight: weight;
-  font-style: normal;
-}
-
+/* Reset */
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE e Edge antigos */
 }
 
-.container {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    flex-wrap: wrap; /* permite quebra de linha */
-}
-
-.card {
-    width: 31%;
-    border: 1px solid black;
-    display: flex;
-    background-image: url(./Cartão\ virtual\ médico\ clínica\ saúde\ cirurgião\ minimalista\ azul\ e\ branco.png);
-    background-size: cover;  /* mostra a imagem inteira */
-    background-position: center;
-    background-repeat: no-repeat;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    border-radius: 10px;
-    padding: 1rem;
-    /* transition: 0.3s ease-in-out; */
-    /* overflow-x: hidden; impede scroll lateral */
-}
-
-/* Responsividade */
-/* Até 1200px → 3 cards por linha */
-@media (max-width: 1200px) {
-    .card {
-        width: 30%;
-        min-height: 65vh;
-    }
-}
-
-/* Até 900px → 2 cards por linha */
-@media (max-width: 900px) {
-    .card {
-        width: 45%;
-        min-height: auto;
-        margin-bottom: 1.5rem;
-    }
-}
-
-/* Até 600px → cards maiores */
-@media (max-width: 600px) {
-    .card {
-        width: 90%;
-        margin: 0 auto 1rem auto;
-    }
-
-    a {
-        width: 100%;
-        font-size: 0.95rem;
-        height: auto;
-        padding: 0.6rem;
-    }
-}
-
-/* Até 400px → ajustes finais para telas muito pequenas */
-@media (max-width: 400px) {
-    .card {
-        width: 95%;
-    }
-
-    a {
-        font-size: 0.85rem;
-        padding: 0.5rem;
-    }
-}
-
-.cabecalho {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding-top: 14vh;
-    gap: 2rem; /* espaço entre elementos internos */
-}
-
-@media (max-width: 900px) {
-    .cabecalho {
-        padding-top: 10vh; /* menos espaço em tablets */
-    }
-}
-
-@media (max-width: 600px) {
-    .cabecalho {
-        padding-top: 6vh; /* menos espaço em celulares */
-    }
-}
-
-
-
-h3{
-    color: white;
-}
-
-h1{
-    color: rgb(18, 41, 62);
-  font-size: clamp(1rem, 3vw, 2rem);
-}
-
-
-img{
-    max-width: 50%;
-    height: auto;
-    display: block;
-    border: 2px solid rgb(0, 0, 0) ;
-    border-radius: 240px;
-}
-
-.lista {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-    padding: 0.5rem;
-}
-
-.lista :hover {
-    background-color: rgb(18, 41, 62);
-    color: white;
-    scale: 1.05;
-    transition: 0.3s;
-}
-
-a {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    border: 1px solid black;
-    border-radius: 8px;
-    width: 70%;   /* agora adapta ao card */
-    height: auto;
-    min-height: 40px; /* altura mínima p/ não ficar espremido */
-    line-height: 40px;
-    text-align: center;
-    margin: 4px 0;
-    transition: 0.3s;
-    word-wrap: break-word; /* evita quebrar layout com textos longos */
-    background-color: rgb(18, 41, 62);
-}
-
-a:hover {
-    background-color: black;
-    color: white;
-}
-
-.bla{
-    width: auto;
-    min-height: 5vh;
-}
-
-/* Para Chrome, Edge e Safari */
+/* Scrollbar invisível para WebKit (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
   display: none;
 }
 
-/* Para Firefox */
-* {
-  scrollbar-width: none; /* remove a barra */
-  -ms-overflow-style: none; /* IE e Edge antigo */
+/* Container principal */
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  flex-wrap: wrap;
+  background: #db7c07;
+background: linear-gradient(0deg, rgba(219, 124, 7, 1) 0%, rgba(28, 69, 184, 1) 81%);
+}
+
+/* Card base */
+.card {
+  width: 31%;
+  min-height: 70vh;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px;
+  padding: 1rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* === IMAGENS DE FUNDO DINÂMICAS POR CLASSE === */
+.bg-prefeitura {
+  background-image: url('./img/prefeitura.jpg');
+}
+
+.bg-saude {
+  background-image: url('./img/saude.jpg');
+}
+
+.bg-educacao {
+  background-image: url('./img/educacao.jpg');
+}
+
+/* === VERSÕES RESPONSIVAS DAS IMAGENS === */
+@media (max-width: 600px) {
+  .bg-prefeitura {
+    background-image: url('./img/prefeitura-mobile.jpg');
+  }
+  .bg-saude {
+    background-image: url('./img/saude-mobile.jpg');
+  }
+  .bg-educacao {
+    background-image: url('./img/educacao-mobile.jpg');
+  }
+}
+
+/* Responsividade dos cards */
+@media (max-width: 1200px) {
+  .card {
+    width: 30%;
+    min-height: 65vh;
+  }
+}
+
+@media (max-width: 900px) {
+  .card {
+    width: 45%;
+    min-height: auto;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 90%;
+    margin: 0 auto 1rem auto;
+  }
+
+  a {
+    width: 100%;
+    font-size: 0.95rem;
+    height: auto;
+    padding: 0.6rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .card {
+    width: 95%;
+  }
+
+  a {
+    font-size: 0.85rem;
+    padding: 0.5rem;
+  }
+}
+
+/* Cabeçalho */
+.cabecalho {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 14vh;
+  gap: 2rem;
+}
+
+@media (max-width: 900px) {
+  .cabecalho {
+    padding-top: 10vh;
+  }
+}
+
+@media (max-width: 600px) {
+  .cabecalho {
+    padding-top: 6vh;
+  }
+}
+
+/* Títulos */
+h1 {
+  color: rgb(18, 41, 62);
+  font-size: clamp(1rem, 3vw, 2rem);
+}
+
+h3 {
+  color: white;
+}
+
+/* Imagem */
+img {
+  max-width: 50%;
+  height: auto;
+  display: block;
+  border: 2px solid black;
+  border-radius: 240px;
+}
+
+/* Lista */
+.lista {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+.lista :hover {
+  background-color: rgb(18, 41, 62);
+  color: white;
+  scale: 1.05;
+  transition: 0.3s;
+}
+
+/* Botões */
+a {
+  text-decoration: none;
+  color: white;
+  background-color: rgb(18, 41, 62);
+  border: 1px solid black;
+  border-radius: 8px;
+  width: 70%;
+  min-height: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin: 4px 0;
+  transition: 0.3s;
+  word-wrap: break-word;
+}
+
+a:hover {
+  background-color: black;
+  color: white;
+}
+
+/* Espaço inferior */
+.bla {
+  width: auto;
+  min-height: 5vh;
 }
